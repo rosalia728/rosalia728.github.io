@@ -1,0 +1,13 @@
+---
+let { image, title, aspectRatio, customClass } = Astro.props;
+---
+
+<div class={`h-full p-4 lg:w-1/2 ${customClass}`}>
+  <div
+    class={`bg-[url('${image}')] bg-cover bg-center aspect-[${aspectRatio}] rounded px-8 pt-16 pb-16 relative hover:opacity-80`}
+  >
+    <h1 class="title-font sm:text-2xl text-xl text-center select-none">
+      {title}
+    </h1>
+  </div>
+</div>
