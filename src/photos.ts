@@ -145,26 +145,5 @@ function random(seed: number) {
           "Descripción de la imagen.",
         url: '/img/14.jpg',
       },
-      {
-        id: 15,
-        title: 'Imagen',
-        description:
-          "Descripción de la imagen.",
-        url: '/img/card1.webp',
-      },
-      {
-        id: 16,
-        title: 'Imagen',
-        description:
-          "Descripción de la imagen.",
-        url: '/img/card2.webp',
-      },
-      {
-        id: 17,
-        title: 'Imagen',
-        description:
-          "Descripción de la imagen.",
-        url: '/img/card3.webp',
-      },
     
   ]
