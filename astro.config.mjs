@@ -6,9 +6,6 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://silviotron.github.io',
   base: '/darkrebellion',
-  experimental: {
-    assets: true
-  },
   integrations: [tailwind()]
 
 });
