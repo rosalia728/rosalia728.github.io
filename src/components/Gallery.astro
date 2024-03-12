@@ -1,0 +1,12 @@
+---
+import ImageC from "../components/ImageC.astro";
+import { getPhotos } from "../photos";
+---
+
+<div class="h-full p-4 lg:columns-2 2xl:columns-3">
+  {
+    getPhotos(false).map((photo, index) => (
+      <ImageC photo={photo} photoIndex={index} />
+    ))
+  }
+</div>
