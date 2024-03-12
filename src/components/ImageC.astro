@@ -15,7 +15,7 @@ const { noId, photo, photoIndex, isCurrent } = Astro.props;
   <img
     class="rounded"
     id={noId ? undefined : `photo-${photo.id}`}
-    src={photo.url}
+    src={"/darkrebellion" + photo.url}
     alt={photo.title}
     loading={photoIndex && photoIndex > 8 ? "lazy" : "eager"}
     fetchpriority={photoIndex && photoIndex <= 4 ? "high" : "auto"}
