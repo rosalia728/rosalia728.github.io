@@ -1,12 +1,64 @@
 ---
 import ImageC from "../components/ImageC.astro";
-import { getPhotos } from "../photos";
+
+function getPhotos(array, ordered = true) {
+  if (ordered) {
+    // Devolver el array de fotos por defecto
+    return array.slice();
+  } else {
+    // Devolver el array de fotos desordenado
+    //return photos.slice().sort(() => Math.random() - 0.5);
+    return shuffle(array, 123456);
+  }
+}
+
+function random(seed: number) {
+  var x = Math.sin(seed++) * 10000;
+  return x - Math.floor(x);
+}
+
+function shuffle(arr, seed: number) {
+  var array = arr.slice(); // <-- ADDED ARGUMENT
+  var m = array.length,
+    t,
+    i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+    // Pick a remaining element…
+    i = Math.floor(random(seed) * m--); // <-- MODIFIED LINE
+
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+    ++seed; // <-- ADDED LINE
+  }
+
+  return array;
+}
+
+const images = shuffle(
+  await Astro.glob("/src/assets/catalogo/*").then((files) => {
+    return files.map((file) => file.default);
+  }),
+  35
+);
 ---
 
 <div class="h-full p-4 lg:columns-2 2xl:columns-3">
   {
-    getPhotos(false).map((photo, index) => (
-      <ImageC photo={photo} photoIndex={index} />
+    images.map((image) => (
+      <div class="mb-4 rounded">
+        <img
+          class="object-contain h-full rounded"
+          src={image.src}
+          alt=""
+          height={image.height}
+          width={image.width}
+          loading="lazy"
+        />
+      </div>
     ))
   }
 </div>
