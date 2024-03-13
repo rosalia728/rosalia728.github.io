@@ -15,7 +15,7 @@
     "@fontsource-variable/onest": "^5.0.2",
     "@fontsource/great-vibes": "^5.0.19",
     "@fontsource/tangerine": "^5.0.8",
-    "astro": "^4.2.3",
+    "astro": "^4.5.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   }
