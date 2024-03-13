@@ -4,8 +4,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://silviotron.github.io',
-  base: '/darkrebellion',
+  site: 'https://rosalia728.github.io',
   integrations: [tailwind()]
 
 });
