@@ -18,6 +18,5 @@ const { noId, photo, photoIndex, isCurrent } = Astro.props;
     src={photo.url}
     alt={photo.title}
     loading={photoIndex && photoIndex > 8 ? "lazy" : "eager"}
-    fetchpriority={photoIndex && photoIndex <= 4 ? "high" : "auto"}
   />
 </div>
