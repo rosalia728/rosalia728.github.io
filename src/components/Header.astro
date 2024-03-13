@@ -1,7 +1,18 @@
+---
+import { getImage } from "astro:assets";
+import myBackground from "../assets/header.jpg";
+
+const optimizedBackground = await getImage({
+  src: myBackground,
+  format: "webp",
+});
+---
+
 <div class="h-full p-4 w-full">
   <a href="/">
     <div
-      class="bg-[url('/header.JPG')] bg-[center_top_-9vw] bg-cover rounded relative min-h-[80px] flex items-center"
+      style={`background-image: url('${optimizedBackground.src}')`}
+      class="bg-[center_top_-9vw] bg-cover rounded relative min-h-[80px] flex items-center"
     >
       <h1
         class="select-none text-6xl font-['tangerine'] font-bold text-center m-auto p-4 lg:text-8xl lg:text-left"

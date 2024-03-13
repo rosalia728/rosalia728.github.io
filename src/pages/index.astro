@@ -1,12 +1,26 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { getImage } from "astro:assets";
+import lookbook from "../assets/lookbook.jpg";
+import catalogo from "../assets/catalogo.jpg";
+
+const optimizedLookbook = await getImage({
+  src: lookbook,
+  format: "webp",
+});
+const optimizedcatalogoatalogo = await getImage({
+  src: catalogo,
+  format: "webp",
+});
 ---
 
 <Layout title="Dark Rebellion">
   <div class="w-full h-full p-4 lg:w-1/2">
     <a href="Lookbook">
       <div
-        class="bg-[linear-gradient(to_top,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.7)),url('/portada-lookbook.JPG')] bg-cover bg-center aspect-[3/4] rounded pt-10 lg:pt-8 relative hover:opacity-80"
+        style={`background-image: linear-gradient(to top,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.7)),url('${optimizedLookbook.src}')`}
+        class="bg-cover bg-center aspect-[3/4] rounded pt-10 relative hover:opacity-80"
       >
         <h1
           class="leading-none text-[15vw] text-center select-none m-auto text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"
@@ -19,7 +33,8 @@ import Layout from "@/layouts/Layout.astro";
   <div class="w-full h-full p-4 lg:w-1/2">
     <a href="catalogo">
       <div
-        class="bg-[linear-gradient(to_top,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.7)),url('/portada-catalogo.JPG')] bg-cover bg-center aspect-[3/4] rounded pt-10 relative hover:opacity-80"
+        style={`background-image: linear-gradient(to top,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.7)),url('${optimizedcatalogoatalogo.src}')`}
+        class="bg-cover bg-center aspect-[3/4] rounded pt-10 relative hover:opacity-80"
       >
         <h1
           class="leading-none text-[15vw] text-center select-none m-auto text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"

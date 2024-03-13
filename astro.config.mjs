@@ -6,5 +6,4 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: 'https://rosalia728.github.io',
   integrations: [tailwind()]
-
 });
