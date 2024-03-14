@@ -18,7 +18,7 @@ const { title, row, items, imgs } = Astro.props;
 const optimizedBackground = await getImage({
   src: import(imgs[0]),
   format: "webp",
-});
+}).then();
 ---
 
 <div class=`w-full h-full p-4 lg:w-1/${row}`>
