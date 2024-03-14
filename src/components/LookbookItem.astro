@@ -1,5 +1,4 @@
 ---
-import { getImage, Image } from "astro:assets";
 interface Item {
   ref: string;
   description: string;
@@ -11,18 +10,17 @@ interface Props {
   imgs: string[];
 }
 const { title, row, items, imgs } = Astro.props;
-
-const foto = (await import(imgs[0])).default;
 ---
 
 <div class={`w-full h-full p-4 lg:w-1/${row} relative hover:opacity-80`}>
   <a href="catalogo">
     <div class="relative">
-      <Image
-        src={foto}
-        alt="Catálogo"
+      <img
+        src={imgs[0]}
+        alt={title}
         class="bg-cover bg-center rounded relative"
       />
+
       <div
         class="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-[rgba(255,255,255,0.35)] rounded"
       >
