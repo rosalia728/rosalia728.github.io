@@ -1,5 +1,5 @@
 ---
-import { getImage } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 
 interface Item {
   ref: string;
@@ -15,17 +15,19 @@ interface Props {
 
 const { title, row, items, imgs } = Astro.props;
 
-const optimizedBackground = await getImage({
-  src: import(imgs[0]),
-  format: "webp",
-}).then();
+var imagesGet = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/lookbook/*.{jpeg,jpg,png,gif}"
+);
+console.log(imagesGet);
+console.log(imgs[0]);
 ---
 
 <div class=`w-full h-full p-4 lg:w-1/${row}`>
   <div
-    style={`background-image: linear-gradient(to bottom,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.7)),url('${optimizedBackground.src}')`}
+    style={`background-image: linear-gradient(to bottom,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.7)),url('')`}
     class="bg-cover bg-center aspect-[3/4] rounded pt-10 relative hover:opacity-80 flex flex-col justify-end"
   >
+    <Image src={imagesGet[imgs[0]]()} alt="" />
     <h1
       class="leading-none text-[15vw] text-center select-none mb-5 text-[#DDDCDB] lg:text-[4vw] xl:text-[3vw]"
     >
