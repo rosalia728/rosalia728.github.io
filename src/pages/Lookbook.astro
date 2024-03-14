@@ -5,5 +5,9 @@ import LOOKBOOK from "../data/lookbook.json";
 ---
 
 <Layout title="Dark Rebellion">
-  {LOOKBOOK.map((lookbook) => <LookbookItem {...lookbook} />)}
+  {
+    LOOKBOOK.map((lookbook, index) => (
+      <LookbookItem id={index + 1} {...lookbook} />
+    ))
+  }
 </Layout>

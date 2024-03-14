@@ -4,16 +4,17 @@ interface Item {
   description: string;
 }
 interface Props {
+  id: number;
   title: string;
   row: number;
   items: Item[];
   imgs: string[];
 }
-const { title, row, items, imgs } = Astro.props;
+const { title, row, items, imgs, id } = Astro.props;
 ---
 
 <div class={`w-full h-full p-4 lg:w-1/${row} relative hover:opacity-80`}>
-  <a href="catalogo">
+  <a href={`/lookbook/${id}`}>
     <div class="relative">
       <img
         src={imgs[0]}
