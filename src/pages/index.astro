@@ -1,47 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-import { getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import lookbook from "../assets/lookbook.jpg";
 import catalogo from "../assets/catalogo.jpg";
-
-const optimizedLookbook = await getImage({
-  src: lookbook,
-  format: "webp",
-});
-const optimizedcatalogoatalogo = await getImage({
-  src: catalogo,
-  format: "webp",
-});
 ---
 
 <Layout title="Dark Rebellion">
-  <div class="w-full h-full p-4 lg:w-1/2">
+  <div class="w-full h-full p-4 lg:w-1/2 relative hover:opacity-80 rounded">
     <a href="Lookbook">
-      <div
-        style={`background-image: linear-gradient(to top,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.7)),url('${optimizedLookbook.src}')`}
-        class="bg-cover bg-center aspect-[3/4] rounded pt-10 relative hover:opacity-80"
-      >
+      <div class="relative">
+        <Image
+          src={lookbook}
+          alt="Lookbook"
+          class="bg-cover bg-center rounded relative"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-transparent from-60% to-[rgba(0,0,0,0.8)] rounded"
+        >
+        </div>
         <h1
-          class="leading-none text-[15vw] text-center select-none m-auto text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"
+          class="leading-none text-[15vw] text-center select-none absolute top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"
         >
           Lookbook
         </h1>
       </div>
     </a>
   </div>
-  <div class="w-full h-full p-4 lg:w-1/2">
+  <div class="w-full h-full p-4 lg:w-1/2 relative hover:opacity-80">
     <a href="catalogo">
-      <div
-        style={`background-image: linear-gradient(to top,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.7)),url('${optimizedcatalogoatalogo.src}')`}
-        class="bg-cover bg-center aspect-[3/4] rounded pt-10 relative hover:opacity-80"
-      >
+      <div class="relative">
+        <Image
+          src={catalogo}
+          alt="Catálogo"
+          class="bg-cover bg-center rounded relative"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-transparent from-60% to-[rgba(0,0,0,0.8)] rounded"
+        >
+        </div>
         <h1
-          class="leading-none text-[15vw] text-center select-none m-auto text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"
+          class="leading-none text-[15vw] text-center select-none absolute top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"
         >
           Catálogo
         </h1>
       </div>
     </a>
   </div>
+  <span hidden class="lg:w-1/2 lg:w-1/3 lg:w-1/4 lg:w-1/5 lg:w-1/6"></span>
 </Layout>

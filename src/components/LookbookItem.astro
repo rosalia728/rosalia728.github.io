@@ -1,5 +1,5 @@
 ---
-import { getImage } from "astro:assets";
+import { getImage, Image } from "astro:assets";
 interface Item {
   ref: string;
   description: string;
@@ -11,22 +11,27 @@ interface Props {
   imgs: string[];
 }
 const { title, row, items, imgs } = Astro.props;
+
 const imgSrc = await import(imgs[0]);
-const optimizedBackground = await getImage({
-  src: imgSrc.default,
-  format: "webp",
-});
 ---
 
-<div class=`w-full h-full p-4 lg:w-1/${row}`>
-  <div
-    style={`background-image: linear-gradient(to bottom,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(255,255,255,0.7)),url('${optimizedBackground.src}')`}
-    class="bg-cover bg-center aspect-[3/4] rounded pt-10 relative hover:opacity-80 flex flex-col justify-end"
-  >
-    <h1
-      class="leading-none text-[15vw] text-center select-none mb-5 text-[#000000] lg:text-[4vw] xl:text-[3vw]"
-    >
-      {title}
-    </h1>
-  </div>
+<div class={`w-full h-full p-4 lg:w-1/${row} relative hover:opacity-80`}>
+  <a href="catalogo">
+    <div class="relative">
+      <Image
+        src={imgSrc.default}
+        alt="Catálogo"
+        class="bg-cover bg-center rounded relative"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-[rgba(255,255,255,0.4)] rounded"
+      >
+      </div>
+      <h1
+        class="leading-none text-[15vw] text-center select-none absolute bottom-1 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#000000] lg:text-[4vw] xl:text-[3vw]"
+      >
+        {title}
+      </h1>
+    </div>
+  </a>
 </div>
