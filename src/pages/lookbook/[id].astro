@@ -15,13 +15,23 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 
 const data = LOOKBOOK[id - 1];
+function changeFoto(this) {
+  var bigFoto = document.getElementById("main");
+  document.getElementById("main").src = this.src;
+}
 ---
 
 <Layout title="Dark Rebellion">
   <div class="w-[22%] h-full pl-4 pt-4 pb-4 pr-2 lg:w-[12%] relative rounded">
     {
       data.imgs.map((img, index) => (
-        <img id={index + ""} src={img} alt={data.title} class="rounded mb-3 " />
+        <img
+          id={index + ""}
+          src={img}
+          alt={data.title}
+          class="rounded mb-3 miniFoto hover:scale-105 duration-100"
+          onclick={(e) => changeFoto(e, img)}
+        />
       ))
     }
   </div>
@@ -45,3 +55,16 @@ const data = LOOKBOOK[id - 1];
     }
   </div>
 </Layout>
+
+<script>
+  const minis = document.getElementsByClassName("miniFoto");
+  for (let i = 0; i < minis.length; i++) {
+    const mini = minis[i];
+    mini.addEventListener("mouseover", () => {
+      console.log(mini.src);
+      bigFoto.src = mini.src;
+    });
+  }
+
+  const bigFoto = document.getElementById("main");
+</script>

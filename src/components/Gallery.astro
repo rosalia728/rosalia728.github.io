@@ -23,6 +23,7 @@ for (const ruta in imagesGet) {
             data-pswp-width={image.width}
             data-pswp-height={image.height}
             target="_blank"
+            class=""
           >
             <Image
               class="object-contain h-full rounded"
@@ -33,9 +34,9 @@ for (const ruta in imagesGet) {
               loading="lazy"
               decoding="async"
               quality={80}
+              class="hover:scale-105 rounded mb-5 duration-100"
             />
           </a>
-          <div class="mb-4 rounded" />
         </>
       ))
     }

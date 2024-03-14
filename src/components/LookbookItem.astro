@@ -13,7 +13,9 @@ interface Props {
 const { title, row, items, imgs, id } = Astro.props;
 ---
 
-<div class={`w-full h-full p-4 lg:w-1/${row} relative hover:opacity-80`}>
+<div
+  class={`w-full h-full p-4 lg:w-1/${row} relative hover:scale-105 duration-100`}
+>
   <a href={`/lookbook/${id}`}>
     <div class="relative">
       <img
