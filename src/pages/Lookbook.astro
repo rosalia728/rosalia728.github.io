@@ -1,7 +1,11 @@
 ---
 import { Image } from "astro:assets";
-import LookbookItem from "../components/LookbookItem.astro";
 import Layout from "../layouts/Layout.astro";
+
+interface Mapa {
+  src: string;
+  fun: Function;
+}
 
 const LOOKBOOK = [
   {
@@ -96,10 +100,8 @@ const LOOKBOOK = [
     imgs: ["../assets/lookbook/P1010012.jpg"],
   },
 ];
-var func = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/lookbook/*.{jpeg,jpg,png,gif}"
-);
-var imports = new Object();
+var func = import.meta.glob("../assets/lookbook/*.{jpeg,jpg,png,gif}");
+var imports: Record<string, Object> = {};
 for (const item of LOOKBOOK) {
   item.imgs.forEach((element) => {
     imports[element] = func[element]();
