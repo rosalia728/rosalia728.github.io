@@ -15,14 +15,6 @@ interface Props {
 
 const { title, row, items, imgs } = Astro.props;
 
-var imagesGet = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/lookbook/*.{jpeg,jpg,png,gif}"
-);
-const images = [];
-for (const ruta in imagesGet) {
-  const image = await imagesGet[ruta]();
-}
-
 const optimizedBackground = await getImage({
   src: import(imgs[0]),
   format: "webp",
