@@ -11,8 +11,9 @@ interface Props {
   imgs: string[];
 }
 const { title, row, items, imgs } = Astro.props;
+const imgSrc = await import(imgs[0]);
 const optimizedBackground = await getImage({
-  src: import(imgs[0]),
+  src: imgSrc.default,
   format: "webp",
 });
 ---
