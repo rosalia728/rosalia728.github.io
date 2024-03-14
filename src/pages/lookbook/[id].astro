@@ -18,14 +18,14 @@ const data = LOOKBOOK[id - 1];
 ---
 
 <Layout title="Dark Rebellion">
-  <div class="w-full h-full pl-4 pt-4 pb-4 pr-2 lg:w-[12%] relative rounded">
+  <div class="w-[22%] h-full pl-4 pt-4 pb-4 pr-2 lg:w-[12%] relative rounded">
     {
       data.imgs.map((img, index) => (
         <img id={index + ""} src={img} alt={data.title} class="rounded mb-3 " />
       ))
     }
   </div>
-  <div class="w-full h-full pl-2 pt-4 pb-4 pr-4 lg:w-[43%] relative">
+  <div class="w-[78%] h-full pl-2 pt-4 pb-4 pr-4 lg:w-[43%] relative">
     <img
       id="main"
       src={data.imgs[0]}
@@ -37,8 +37,8 @@ const data = LOOKBOOK[id - 1];
     {
       data.items.map((item, index) => (
         <>
-          <h3>{item.ref} </h3>
           <p>{item.description}</p>
+          <p>Ref.:{item.ref} </p>
           <br />
         </>
       ))
