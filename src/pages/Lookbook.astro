@@ -1,0 +1,102 @@
+---
+import LookbookItem from "../components/LookbookItem.astro";
+import Layout from "../layouts/Layout.astro";
+
+const LOOKBOOK = [
+  {
+    title: "Almudena",
+    row: 3,
+    items: [
+      {
+        ref: "587h83",
+        description:
+          "Vestido negro con escote halter, espalda abierta y de talle largo.",
+      },
+      {
+        ref: "5390h7",
+        description:
+          "Abrigo corto de pelo sintético con solapa estrecha de color negro.",
+      },
+    ],
+    imgs: [
+      "../assets/lookbook/P1010023.jpg",
+      "../assets/lookbook/P1010027.jpg",
+      "../assets/lookbook/P1010033.jpg",
+      "../assets/lookbook/P1010077.jpg",
+    ],
+  },
+  {
+    title: "Elías",
+    row: 3,
+    items: [
+      {
+        ref: "5l8h63",
+        description:
+          "Abrigo negro de paño con mangas murciélago y con solapas.",
+      },
+      {
+        ref: "1i73j5",
+        description: "Sudadera negra con capucha y cremallera.",
+      },
+      {
+        ref: "1i73j5",
+        description: "Pantalón de traje negro",
+      },
+    ],
+    imgs: [
+      "../assets/lookbook/P1010052-Recuperado.jpg",
+      "../assets/lookbook/P1010061.jpg",
+      "../assets/lookbook/P1010062.jpg",
+      "../assets/lookbook/P1010077.jpg",
+    ],
+  },
+  {
+    title: "Rosalía",
+    row: 3,
+    items: [
+      {
+        ref: "489j37",
+        description:
+          "Vestido palabra de honor con vuelo, de largo midi y de color negro.",
+      },
+      {
+        ref: "847529h",
+        description:
+          "Abrigo corto de pelo sintético con solapa ancha en color marrón.",
+      },
+    ],
+    imgs: [
+      "../assets/lookbook/P1010036.jpg",
+      "../assets/lookbook/P1010042.jpg",
+      "../assets/lookbook/P1010046.jpg",
+      "../assets/lookbook/P1010077.jpg",
+    ],
+  },
+  {
+    title: "Bolso",
+    row: 2,
+    items: [
+      {
+        ref: "2770y5",
+        description: "Bolso de mano negro con detalles dorados.",
+      },
+    ],
+    imgs: ["../assets/lookbook/bolso.jpg"],
+  },
+  {
+    title: "Gafas",
+    row: 2,
+    items: [
+      {
+        ref: "493839t",
+        description: "Gafas de sol con montura y cristales negros.",
+      },
+    ],
+    imgs: ["../assets/lookbook/P1010012.jpg"],
+  },
+];
+---
+
+<Layout title="Dark Rebellion">
+  {LOOKBOOK.map((lookbook) => <LookbookItem {...lookbook} />)}
+</Layout>
