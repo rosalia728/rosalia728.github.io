@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import LookbookItem from "../components/LookbookItem.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -95,8 +96,32 @@ const LOOKBOOK = [
     imgs: ["../assets/lookbook/P1010012.jpg"],
   },
 ];
+var func = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/lookbook/*.{jpeg,jpg,png,gif}"
+);
+var imports = new Object();
+for (const item of LOOKBOOK) {
+  item.imgs.forEach((element) => {
+    imports[element] = func[element]();
+  });
+}
+console.log(imports);
 ---
 
 <Layout title="Dark Rebellion">
-  {LOOKBOOK.map((lookbook) => <LookbookItem {...lookbook} />)}
+  {
+    LOOKBOOK.map((lookbook) => (
+      <div class={`w-full h-full p-4 lg:w-1/${lookbook.row}`}>
+        <div
+          style={`background-image: linear-gradient(to bottom,transparent,rgba(0,0,0,0),rgba(0,0,0,0),rgba(0,0,0,0.7)),url('')`}
+          class="bg-cover bg-center aspect-[3/4] rounded pt-10 relative hover:opacity-80 flex flex-col justify-end"
+        >
+          <Image src={imports[lookbook.imgs[0]]} alt="" />
+          <h1 class="leading-none text-[15vw] text-center select-none mb-5 text-[#DDDCDB] lg:text-[4vw] xl:text-[3vw]">
+            {lookbook.title}
+          </h1>
+        </div>
+      </div>
+    ))
+  }
 </Layout>
