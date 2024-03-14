@@ -7,7 +7,8 @@ var imagesGet = import.meta.glob<{ default: ImageMetadata }>(
 );
 const images = [];
 for (const ruta in imagesGet) {
-  images.push(import(ruta));
+  const image = await imagesGet[ruta]();
+  images.push(image.default);
 }
 ---
 
