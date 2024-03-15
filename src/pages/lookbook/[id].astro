@@ -18,7 +18,9 @@ const data = LOOKBOOK[id - 1];
 ---
 
 <Layout title="Dark Rebellion">
-  <div class="w-[22%] h-full pl-4 pt-4 pb-4 pr-2 lg:w-[12%] relative rounded">
+  <div
+    class={`w-[22%] h-full pl-4 pt-4 pb-4 pr-2 lg:w-[12%] relative rounded ${data.imgs.length <= 1 ? "hidden" : ""}`}
+  >
     {
       data.imgs.map((img, index) => (
         <img
@@ -31,7 +33,9 @@ const data = LOOKBOOK[id - 1];
       ))
     }
   </div>
-  <div class="w-[78%] h-full pl-2 pt-4 pb-4 pr-4 lg:w-[43%] relative">
+  <div
+    class={`h-full pl-2 pt-4 pb-4 pr-4 relative ${data.imgs.length <= 1 ? "lg:w-[55%] pl-4 w-full" : "lg:w-[43%] w-[78%]"}`}
+  >
     <img
       id="main"
       src={data.imgs[0]}
@@ -40,9 +44,13 @@ const data = LOOKBOOK[id - 1];
       loading="eager"
     />
   </div>
-  <div class="w-full h-full pl-2 pt-4 pb-4 pr-4 lg:w-[45%] relative text-white">
+  <div
+    class="w-full h-full pl-2 pt-4 pb-4 pr-4 lg:w-[45%] relative text-white pl-4"
+  >
     <a href="/lookbook"
-      ><span class="float-right bg-white p-2 ml-3 mb-3 rounded">❌</span></a
+      ><span class="float-right bg-white p-2 ml-3 mb-3 rounded hover:scale-105"
+        >❌</span
+      ></a
     >
 
     {
