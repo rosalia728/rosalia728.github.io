@@ -44,6 +44,7 @@ const { title } = Astro.props;
   }
 
   html {
+    margin-left: calc(100vw - 100%);
     --s: 50px;
     --c: #191b22;
     --_s: calc(2 * var(--s)) calc(2 * var(--s));
@@ -58,6 +59,7 @@ const { title } = Astro.props;
       repeating-conic-gradient(var(--c) 0 25%, #0000 0 50%) 0 0 / var(--_s),
       radial-gradient(var(--_c)) 0 calc(var(--s) / 2) / var(--s) var(--s)
         var(--c);
+    background-attachment: fixed;
     background-attachment: fixed;
   }
 </style>

@@ -9,19 +9,23 @@ import catalogo from "../assets/catalogo.jpg";
   <div
     class="w-full h-full p-4 lg:w-1/2 relative hover:scale-105 rounded duration-100"
   >
-    <a href="Lookbook">
+    <a href="lookbook">
       <div class="relative">
         <Image
           src={lookbook}
           alt="Lookbook"
           class="bg-cover bg-center rounded relative"
+          widths={[240, 540, 720, 1080]}
+          quality={80}
+          loading="eager"
+          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, 1080px`}
         />
         <div
           class="absolute inset-0 bg-gradient-to-t from-transparent from-60% to-[rgba(0,0,0,0.8)] rounded"
         >
         </div>
         <h1
-          class="leading-none text-[15vw] text-center select-none absolute top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"
+          class="leading-none text-[15vw] text-center select-none absolute top-[12%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"
         >
           Lookbook
         </h1>
@@ -33,7 +37,11 @@ import catalogo from "../assets/catalogo.jpg";
       <div class="relative">
         <Image
           src={catalogo}
+          widths={[240, 540, 720, 1080]}
+          quality={80}
+          sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, 1080px`}
           alt="Catálogo"
+          loading="eager"
           class="bg-cover bg-center rounded relative"
         />
         <div
@@ -41,7 +49,7 @@ import catalogo from "../assets/catalogo.jpg";
         >
         </div>
         <h1
-          class="leading-none text-[15vw] text-center select-none absolute top-20 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"
+          class="leading-none text-[15vw] text-center select-none absolute top-[12%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#DDDCDB] lg:text-[7vw] xl:text-[6vw]"
         >
           Catálogo
         </h1>

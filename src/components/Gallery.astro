@@ -13,7 +13,7 @@ for (const ruta in imagesGet) {
 }
 ---
 
-<div class="h-full p-4 lg:columns-2 2xl:columns-3">
+<div class="h-full pl-4 pr-4 lg:columns-2 2xl:columns-3">
   <div class="pswp-gallery" id="my-gallery">
     {
       images.map((image) => (
@@ -29,12 +29,12 @@ for (const ruta in imagesGet) {
               class="object-contain h-full rounded"
               src={image}
               widths={[240, 540, 720, 1080]}
-              sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, 1080px`}
+              sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, 720px`}
               alt="Fotografia del catálogo"
               loading="lazy"
               decoding="async"
               quality={80}
-              class="hover:scale-105 rounded mb-5 duration-100"
+              class="hover:scale-105 rounded mb-6 sm:mb-7 lg:mb-6 2xl:mb-5 duration-100"
             />
           </a>
         </>

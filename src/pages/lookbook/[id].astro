@@ -25,6 +25,7 @@ const data = LOOKBOOK[id - 1];
           id={index + ""}
           src={img}
           alt={data.title}
+          loading="eager"
           class="rounded mb-3 miniFoto hover:scale-105 duration-100"
         />
       ))
@@ -36,16 +37,20 @@ const data = LOOKBOOK[id - 1];
       src={data.imgs[0]}
       alt={data.title}
       class="rounded relative"
+      loading="eager"
     />
   </div>
   <div class="w-full h-full pl-2 pt-4 pb-4 pr-4 lg:w-[45%] relative text-white">
+    <a href="/lookbook"
+      ><span class="float-right bg-white p-2 ml-3 mb-3 rounded">❌</span></a
+    >
+
     {
       data.items.map((item, index) => (
-        <>
-          <p>{item.description}</p>
-          <p>Ref.:{item.ref} </p>
-          <br />
-        </>
+        <div>
+          <p class="">{item.description}</p>
+          <p class="text-red-500 mb-8">Ref.:{item.ref} </p>
+        </div>
       ))
     }
   </div>
@@ -58,8 +63,9 @@ const data = LOOKBOOK[id - 1];
   for (let i = 0; i < minis.length; i++) {
     const mini = minis[i] as HTMLImageElement;
     mini.addEventListener("mouseover", () => {
-      console.log(mini.src);
-      bigFoto.src = mini.src;
+      if (bigFoto.src != mini.src) {
+        bigFoto.src = mini.src;
+      }
     });
   }
 </script>
