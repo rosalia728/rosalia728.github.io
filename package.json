@@ -12,7 +12,6 @@
   "dependencies": {
     "@astrojs/check": "^0.5.9",
     "@astrojs/tailwind": "^5.1.0",
-    "@fontsource-variable/onest": "^5.0.3",
     "@fontsource/tangerine": "^5.0.8",
     "astro": "^4.5.2",
     "photoswipe": "^5.4.3",
